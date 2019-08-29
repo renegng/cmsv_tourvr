@@ -74,17 +74,17 @@ def _arte_terapia():
 def _atencion_infantil():
     return render_template('atencion_infantil.html')
 
-@home.route('/sala-cunas/')
-def _sala_cunas():
-    return render_template('sala_cunas.html')
+@home.route('/sala-cuna/')
+def _sala_cuna():
+    return render_template('sala_cuna.html')
 
-@home.route('/sala-ninos/')
-def _sala_ninos():
-    return render_template('sala_ninos.html')
+@home.route('/sala-a/')
+def _sala_a():
+    return render_template('sala_a.html')
 
-@home.route('/sala-pequenos/')
-def _sala_pequenos():
-    return render_template('sala_pequenos.html')
+@home.route('/sala-b/')
+def _sala_b():
+    return render_template('sala_b.html')
 
 @home.route('/acercade/')
 def _acercade():
