@@ -9,9 +9,17 @@
 <section class="s-maincontainer s-maincontainer__landing">
     <main class="s-content">
         <div class="s-vrcontainer">
+            <div class="s-vrcontainer__logo">
+                <img src="{{ url_for('static', filename='images/manifest/logoCMSVTVR.png') }}" alt="Logo Ciudad Mujer Tour VR">
+            </div>
             <div class="s-vrcontainer__panellum"></div>
+            <button id="playAudioButton" class="mdc-icon-toggle mdc-fab fab__playbutton"
+                aria-label="Play Ciudad Mujer Tour VR Audio" tabindex="0">
+                <i class="material-icons mdc-icon-button__icon">play_arrow</i>
+                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">pause</i>
+            </button>
         </div>
-        <audio id="cmsv-vr-audio" preload="metadata">
+        <audio id="cmsv-vr-audio" preload="auto">
             <source src="{{ url_for('static', filename='media/audio/tourvr/es/intro.mp3') }}" type="audio/mpeg">
             Tu navegador no soporta este elemento.
         </audio>
@@ -21,15 +29,33 @@
     // Panorama DOM Container
     const container = document.querySelector('.s-vrcontainer__panellum');
 
+    // Calculate proper cube resolution depending on media query
+    var res = '1024';
+    // Smartphones
+    if (window.matchMedia('(max-width: 29.99rem)').matches){
+        res = '480';
+    } else {
+        // Tablets
+        if (window.matchMedia('(max-width: 49.99rem)').matches){
+            res = '1024';
+        } else {
+            // Desktops
+            if (window.matchMedia('(min-width: 50rem)').matches)
+                res = '2048';
+        }
+    }
+
     // Cube Panorama
     const panorama = [
-        'static/images/cubes/2048/01Entrance_1.jpg',
-        'static/images/cubes/2048/01Entrance_2.jpg',
-        'static/images/cubes/2048/01Entrance_3.jpg',
-        'static/images/cubes/2048/01Entrance_4.jpg',
-        'static/images/cubes/2048/01Entrance_5.jpg',
-        'static/images/cubes/2048/01Entrance_6.jpg'
+        'static/images/cubes/'+ res +'/01Entrance_1.jpg',
+        'static/images/cubes/'+ res +'/01Entrance_2.jpg',
+        'static/images/cubes/'+ res +'/01Entrance_3.jpg',
+        'static/images/cubes/'+ res +'/01Entrance_4.jpg',
+        'static/images/cubes/'+ res +'/01Entrance_5.jpg',
+        'static/images/cubes/'+ res +'/01Entrance_6.jpg'
     ];
+
+    console.log(panorama);
 
     // Pannellum init
     pannellum.viewer(container, {

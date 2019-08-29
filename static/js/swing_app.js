@@ -1,9 +1,10 @@
 // import AOS from 'aos';
+import { MDCDrawer } from '@material/drawer';
 import { MDCFloatingLabel } from '@material/floating-label';
+import { MDCIconButtonToggle } from '@material/icon-button';
 import { MDCLineRipple } from '@material/line-ripple';
 import { MDCMenu, Corner } from '@material/menu';
 import { MDCNotchedOutline } from '@material/notched-outline';
-import { MDCDrawer } from '@material/drawer';
 import { MDCRipple } from '@material/ripple';
 import { MDCSnackbar, MDCSnackbarFoundation } from '@material/snackbar';
 import { MDCTab } from '@material/tab';
@@ -53,9 +54,15 @@ if (shareMenuButton != null) {
 }
 
 // Material Ripple
-var mdcButtonRipples = [].map.call(document.querySelectorAll('.mdc-button'), function (el) {
+var mdcButtonRipples = [].map.call(document.querySelectorAll('.mdc-button, .mdc-icon-button'), function (el) {
     return new MDCRipple(el);
 });
+mdcButtonRipples.forEach((elem) => {
+    elem.unbounded = true;
+});
+mdcButtonRipples = mdcButtonRipples.concat([].map.call(document.querySelectorAll('.mdc-fab'), function (el) {
+    return new MDCRipple(el);
+}));
 
 // Material Snackbar
 const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
@@ -171,21 +178,25 @@ function showTabContent(e) {
 }
 
 // Audio playback
+var audio = null;
 var playAudioButton = null;
+var playAudioButtonIconToggle = null;
 if (!isNull(document.querySelector('.fab__playbutton'))) {
     playAudioButton = document.querySelector('.fab__playbutton');
-    playAudioButton.addEventListener('MDCIconToggle:change', ({ detail }) => playAudio(detail));
+    playAudioButtonIconToggle = new MDCIconButtonToggle(document.querySelector('.fab__playbutton'));
+    playAudioButton.addEventListener('MDCIconButtonToggle:change', ({ detail }) => playAudio(detail));
+
+    // Autoplay audio
+    audio = document.getElementById('cmsv-vr-audio');
+    audio.oncanplaythrough = () => { playAudioButton.click() };
 }
 
 function playAudio(detail) {
-    var audio = document.getElementById('cmh-jingle');
-
     if (detail.isOn) {
         audio.play();
     } else {
         audio.pause();
     }
-
     audio.onended = () => { playAudioButton.click() };
 }
 
@@ -200,13 +211,7 @@ if (!isNull(document.querySelector('#landing-img-carousel'))) {
 
 var lpic = 1;
 function landingPageImgCarousel(container) {
-    var backgroundImgs = [
-        "../static/images/assets/ciudadmujer/cmh_02_bg.jpg",
-        "../static/images/assets/ciudadmujer/cmh_06_bg.jpg",
-        "../static/images/assets/ciudadmujer/cmh_13_bg.jpg",
-        "../static/images/assets/ciudadmujer/cmh_14_bg.jpg",
-        "../static/images/assets/ciudadmujer/cmh_15_bg.jpg",
-    ];
+    var backgroundImgs = [];
     container.classList.remove('img-transition-fadein');
     // Forces re-orientation of the container, which forces re-animation
     void container.offsetWidth;

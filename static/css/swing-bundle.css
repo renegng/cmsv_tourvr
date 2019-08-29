@@ -5979,7 +5979,20 @@ body {
 
 .s-vrcontainer {
   width: 100%;
-  height: 90vh; }
+  height: 90vh;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center; }
+
+.s-vrcontainer__logo {
+  position: absolute;
+  right: 0rem;
+  background-color: #fffbfa;
+  border-radius: 25% 0%;
+  z-index: 2; }
+  .s-vrcontainer__logo img {
+    width: 7rem;
+    height: 7rem; }
 
 .s-googlemaps__iframe {
   width: 100%;
@@ -6000,8 +6013,6 @@ body {
   background-color: #25d366; }
 
 .fab__playbutton {
-  position: absolute;
-  bottom: -1.7rem;
   -webkit-animation-name: pulsate;
           animation-name: pulsate;
   -webkit-animation-delay: 2s;
@@ -6009,7 +6020,10 @@ body {
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: 2;
-          animation-iteration-count: 2; }
+          animation-iteration-count: 2;
+  background-color: #ff502f;
+  bottom: 4rem;
+  z-index: 1; }
 
 @-webkit-keyframes pulsate {
   0% {
