@@ -5506,6 +5506,9 @@ body {
     text-overflow: ellipsis;
     text-align: start; }
 
+.s-mdc-list-divider {
+  border-bottom-color: #e0e0e0; }
+
 .s-mdc-videocontainer__media--16-9 {
   position: relative;
   padding-bottom: 56.25%;
@@ -5912,12 +5915,12 @@ body {
   color: #f69f69; }
 
 @media all and (min-width: 50em) {
-  .logo-cmhgob-acercade {
+  .logo-cmsvgob-acercade {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     justify-content: space-evenly; }
-    .logo-cmhgob-acercade img {
+    .logo-cmsvgob-acercade img {
       max-width: 50%;
       -o-object-fit: contain;
          object-fit: contain; }
@@ -5930,12 +5933,12 @@ body {
     height: auto; } }
 
 @media all and (max-width: 49.99em) {
-  .logo-cmhgob-acercade {
+  .logo-cmsvgob-acercade {
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
     justify-content: space-evenly; }
-    .logo-cmhgob-acercade img {
+    .logo-cmsvgob-acercade img {
       max-width: 100%;
       -o-object-fit: contain;
          object-fit: contain; }
@@ -5948,12 +5951,12 @@ body {
     height: auto; } }
 
 @media all and (max-width: 39.99em) {
-  .logo-cmhgob-acercade {
+  .logo-cmsvgob-acercade {
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
     justify-content: space-evenly; }
-    .logo-cmhgob-acercade img {
+    .logo-cmsvgob-acercade img {
       max-width: 100%;
       -o-object-fit: contain;
          object-fit: contain; }
@@ -5993,6 +5996,16 @@ body {
   .s-vrcontainer__logo img {
     width: 7rem;
     height: 7rem; }
+
+.s-vrcontainer__hotspot {
+  width: 4rem;
+  height: 4rem; }
+
+.s-vrcontainer__hotspot::after {
+  font-family: "Material Icons";
+  font-size: 4rem;
+  content: 'my_location';
+  color: #ff502f; }
 
 .s-googlemaps__iframe {
   width: 100%;

@@ -1,6 +1,6 @@
 {% extends 'layout_topbar_footer.html' %}
-{% block page_description %}Ciudad Mujer El Salvador, Tour VR{% endblock %}
-{% block page_title %}Ciudad Mujer El Salvador{% endblock %}
+{% block page_description %}Ciudad Mujer El Salvador, Tour VR, Zona de Recreo{% endblock %}
+{% block page_title %}Ciudad Mujer El Salvador, Zona de Recreo{% endblock %}
 {% block head_section %}
 <script src="{{ url_for('static', filename='js/pannellum.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pannellum.css') }}">
@@ -47,12 +47,12 @@
 
     // Cube Panorama
     const panorama = [
-        'static/images/cubes/'+ res +'/01Entrance_1.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_2.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_3.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_4.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_5.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_6.jpg'
+        '../static/images/cubes/'+ res +'/05Recreation_area_1.jpg',
+        '../static/images/cubes/'+ res +'/05Recreation_area_2.jpg',
+        '../static/images/cubes/'+ res +'/05Recreation_area_3.jpg',
+        '../static/images/cubes/'+ res +'/05Recreation_area_4.jpg',
+        '../static/images/cubes/'+ res +'/05Recreation_area_5.jpg',
+        '../static/images/cubes/'+ res +'/05Recreation_area_6.jpg'
     ];
 
     // Pannellum init
@@ -62,17 +62,39 @@
         'autoRotateInactivityDelay': 10000,
         'cubeMap': panorama,
         //'hotSpotDebug': true,
-        'hotSpots': [{
-            'pitch': 1.53,
-            'yaw': 161.52,
-            'type': 'info',
-            'cssClass': 's-vrcontainer__hotspot',
-            'text': 'Recepción',
-            'URL': '/recepcion/',
-            'attributes': {
-                'target': '_self'
+        'hotSpots': [
+            {
+                'pitch': 0.42,
+                'yaw': 104.25,
+                'type': 'info',
+                'cssClass': 's-vrcontainer__hotspot',
+                'text': 'Cafetería',
+                'URL': '/cafeteria/',
+                'attributes': {
+                    'target': '_self'
+                }
+            },{
+                'pitch': 2.90,
+                'yaw': 42.37,
+                'type': 'info',
+                'cssClass': 's-vrcontainer__hotspot',
+                'text': 'Autonomía Económica',
+                'URL': '/autonomia-economica/',
+                'attributes': {
+                    'target': '_self'
+                }
+            },{
+                'pitch': 2.33,
+                'yaw': -50.84,
+                'type': 'info',
+                'cssClass': 's-vrcontainer__hotspot',
+                'text': 'Atención Infantil',
+                'URL': '/atencion-infantil/',
+                'attributes': {
+                    'target': '_self'
+                }
             }
-        }],
+        ],
         'keyboardZoom': false,
         'mouseZoom': 'fullscreenonly',
         'type': 'cubemap'

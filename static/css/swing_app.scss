@@ -443,6 +443,10 @@ body {
   }
 }
 
+.s-mdc-list-divider {
+  border-bottom-color: #e0e0e0;
+}
+
 .s-mdc-videocontainer__media--16-9 {
   position:relative;
 	padding-bottom:56.25%;
@@ -985,7 +989,7 @@ body {
 
 // Laptops and Computers
 @media all and (min-width: 50em) {
-  .logo-cmhgob-acercade {
+  .logo-cmsvgob-acercade {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
@@ -1010,7 +1014,7 @@ body {
 
 // Tablets
 @media all and (max-width: 49.99em) {
-  .logo-cmhgob-acercade {
+  .logo-cmsvgob-acercade {
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
@@ -1035,7 +1039,7 @@ body {
 
 // Smartphones
 @media all and (max-width: 39.99em) {
-  .logo-cmhgob-acercade {
+  .logo-cmsvgob-acercade {
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
@@ -1095,6 +1099,18 @@ body {
     width: 7rem;
     height: 7rem;
   }
+}
+
+.s-vrcontainer__hotspot {
+  width: 4rem;
+  height: 4rem;
+}
+
+.s-vrcontainer__hotspot::after {
+  font-family: "Material Icons";
+  font-size: 4rem;
+  content: 'my_location';
+  color: #ff502f;
 }
 
 // Google Maps component

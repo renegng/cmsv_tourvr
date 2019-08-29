@@ -1,6 +1,6 @@
 {% extends 'layout_topbar_footer.html' %}
-{% block page_description %}Ciudad Mujer El Salvador, Tour VR{% endblock %}
-{% block page_title %}Ciudad Mujer El Salvador{% endblock %}
+{% block page_description %}Ciudad Mujer El Salvador, Tour VR, Laboratorio Clínico{% endblock %}
+{% block page_title %}Ciudad Mujer El Salvador, Laboratorio Clínico{% endblock %}
 {% block head_section %}
 <script src="{{ url_for('static', filename='js/pannellum.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pannellum.css') }}">
@@ -20,7 +20,7 @@
             </button>
         </div>
         <audio id="cmsv-vr-audio" preload="auto">
-            <source src="{{ url_for('static', filename='media/audio/tourvr/es/intro.mp3') }}" type="audio/mpeg">
+            <source src="{{ url_for('static', filename='media/audio/tourvr/es/reproductivehealth.mp3') }}" type="audio/mpeg">
             Tu navegador no soporta este elemento.
         </audio>
     </main>
@@ -47,12 +47,12 @@
 
     // Cube Panorama
     const panorama = [
-        'static/images/cubes/'+ res +'/01Entrance_1.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_2.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_3.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_4.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_5.jpg',
-        'static/images/cubes/'+ res +'/01Entrance_6.jpg'
+        '../static/images/cubes/'+ res +'/13Clinical_laboratory_1.jpg',
+        '../static/images/cubes/'+ res +'/13Clinical_laboratory_2.jpg',
+        '../static/images/cubes/'+ res +'/13Clinical_laboratory_3.jpg',
+        '../static/images/cubes/'+ res +'/13Clinical_laboratory_4.jpg',
+        '../static/images/cubes/'+ res +'/13Clinical_laboratory_5.jpg',
+        '../static/images/cubes/'+ res +'/13Clinical_laboratory_6.jpg'
     ];
 
     // Pannellum init
@@ -61,18 +61,6 @@
         'autoRotate': -2,
         'autoRotateInactivityDelay': 10000,
         'cubeMap': panorama,
-        //'hotSpotDebug': true,
-        'hotSpots': [{
-            'pitch': 1.53,
-            'yaw': 161.52,
-            'type': 'info',
-            'cssClass': 's-vrcontainer__hotspot',
-            'text': 'Recepción',
-            'URL': '/recepcion/',
-            'attributes': {
-                'target': '_self'
-            }
-        }],
         'keyboardZoom': false,
         'mouseZoom': 'fullscreenonly',
         'type': 'cubemap'
